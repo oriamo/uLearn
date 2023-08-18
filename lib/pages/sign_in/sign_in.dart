@@ -6,6 +6,9 @@ import 'package:shop_app/common/widgets/button_widgets.dart';
 import 'package:shop_app/common/widgets/text_widgets.dart';
 import 'package:shop_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
+import '../../common/widgets/app_bar.dart';
+import '../../common/widgets/app_textfields.dart';
+
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
@@ -53,7 +56,7 @@ class SignIn extends StatelessWidget {
                 ),
                 Container(
                     margin: EdgeInsets.only(left: 25.w),
-                    child: text12Underlined(text: "forgot password?")),
+                    child: textUnderline(text: "forgot password?")),
                 SizedBox(
                   height: 100.h,
                 ),
@@ -69,12 +72,10 @@ class SignIn extends StatelessWidget {
                 //app sign up button
                 Center(
                   child: appButton(
-                    buttonName: "Sign Up",
-                    color: AppColors.primaryBackground,
-                    textColor: AppColors.primaryText,
-
-                  ),
-                ),
+                      buttonName: "Register",
+                      isLogin: false,
+                      context: context,
+                      func: ()=>Navigator.pushNamed(context, "/signUp"))),
               ],
             ),
           ),

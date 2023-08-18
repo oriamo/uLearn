@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shop_app/common/utils/app_styles.dart';
 import 'package:shop_app/pages/sign_in/sign_in.dart';
+import 'package:shop_app/pages/sign_up/sign_up.dart';
 import 'package:shop_app/pages/welcome/Welcome.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,14 +26,12 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'First Method',
           // You can use the library anywhere in the app even in theme
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
+          theme: AppTheme.appThemeData,
           initialRoute: "/",
           routes: {
             "/" : (context) => Welcome(),
             "/signIn" : (context) => SignIn(),
+            "/signUp" : (context) => SignUp(),
         },
         );
       },

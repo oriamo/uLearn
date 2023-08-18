@@ -16,7 +16,7 @@ Widget appOnboardingPage(PageController controller, BuildContext context,
       ),
       Container(
         margin: EdgeInsets.only(top: 15),
-        child: Text24Normal(text: title),
+        child: text24Normal(text: title),
       ),
       Container(
         margin: EdgeInsets.only(top: 15),

@@ -1,32 +1,35 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shop_app/common/utils/app_colors.dart';
-import 'package:shop_app/common/widgets/app_shadow.dart';
 import 'package:shop_app/common/widgets/text_widgets.dart';
 
-Widget appButton({String buttonName = "", double height = 50, double width = 325, Color color = AppColors.primaryElement, Color textColor = AppColors.primaryBackground}){
+import '../utils/app_colors.dart';
+import 'app_bar.dart';
+import 'app_shadow.dart';
 
+Widget appButton({
+  double width = 325,
+  double height = 50,
+  String buttonName = "",
+  bool isLogin = true,
+  BuildContext? context,
+  void Function()? func
+}) {
   return GestureDetector(
-    onTap: (){
-
-    },
+    onTap: func,
     child: Container(
       width: width.w,
       height: height.h,
+      //isLogin true then send primary color else send white color
       decoration: appBoxShadow(
-        color: color,
-        border: Border.all(color: AppColors.primaryFourElementText)
-      ),
+          color: isLogin ? AppColors.primaryElement : Colors.white,
+          border: Border.all(color: AppColors.primaryFourElementText)),
       child: Center(
-        child: text16Normal(
-          text: buttonName,
-          color: textColor,
-        ),
-      ),
-
-
+          child: text16Normal(
+              text: buttonName,
+              color: isLogin
+                  ? AppColors.primaryBackground
+                  : AppColors.primaryText)),
     ),
   );
 }
