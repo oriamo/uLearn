@@ -46,7 +46,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 30.h,
+                          height: 10.h,
                         ),
                         //more login options message
                         Center(
@@ -54,7 +54,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                                 text:
                                     "Enter your details below & free sign up")),
                         SizedBox(
-                          height: 50.h,
+                          height: 20.h,
                         ),
                         //user name text box
                         appTextField(

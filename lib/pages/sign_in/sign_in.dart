@@ -1,19 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_app/common/utils/app_colors.dart';
 import 'package:shop_app/common/widgets/button_widgets.dart';
 import 'package:shop_app/common/widgets/text_widgets.dart';
+import 'package:shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
+import 'package:shop_app/pages/sign_in/sign_in_controller.dart';
 import 'package:shop_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
 import '../../common/widgets/app_bar.dart';
 import '../../common/widgets/app_textfields.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
 
   @override
+  ConsumerState<SignIn> createState() => _SignInState();
+}
+
+
+class _SignInState extends ConsumerState<SignIn> {
+  //creating a variable for the sign in controller
+  late SignInController _controller;
+  @override
+  void initState() {
+    //initializing the sign in controller
+    _controller = SignInController(ref);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final signInProvider = ref.watch(signInNotifierProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
