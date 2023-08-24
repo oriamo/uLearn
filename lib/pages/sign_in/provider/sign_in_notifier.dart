@@ -11,13 +11,13 @@ class SignInNotifier extends StateNotifier<SignInState>{
 
 
   void onUserPasswordChanged(String email){
-    state = state.copyWith(email: email);
+    state = state.copyWith(password: email);
   }
 
 
 
 }
 
-final signInNotifierProvider = StateNotifierProvider((ref){
+final signInNotifierProvider = StateNotifierProvider<SignInNotifier, SignInState>((ref){
   return SignInNotifier();
 });

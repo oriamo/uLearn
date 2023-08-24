@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:shop_app/pages/sign_up/provider/register_notifier.dart';
 import '../../common/loader/global_loader.dart';
 import '../../common/widgets/popup_messages.dart';
-import 'notifier/register_notifier.dart';
+
 
 
 class SignUpController{
@@ -70,6 +70,9 @@ class SignUpController{
          toastInfo("This email address has already been registered");
        }else if(e.code=='user-not-found'){
          toastInfo("User not found");
+       }
+       if(kDebugMode){
+         print(e.code);
        }
 
     }catch(e){

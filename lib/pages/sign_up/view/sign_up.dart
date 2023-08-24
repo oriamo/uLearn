@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_app/pages/sign_up/sign_up_controller.dart';
 import '../../common/loader/global_loader.dart';
 import '../../common/utils/app_colors.dart';
+import '../../common/utils/image_res.dart';
 import '../../common/widgets/app_bar.dart';
 import '../../common/widgets/app_textfields.dart';
 import '../../common/widgets/button_widgets.dart';
@@ -59,7 +60,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //user name text box
                         appTextField(
                           text: "User name",
-                          iconName: "user.png",
+                          iconName: ImageRes.user,
                           hintText: "Enter your user name",
                           func: (value) => ref
                               .read(registerNotifierProvider.notifier)
@@ -71,7 +72,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //email text box
                         appTextField(
                           text: "Email",
-                          iconName: "user.png",
+                          iconName: ImageRes.user,
                           hintText: "Enter your email address",
                           func: (value) => ref
                               .read(registerNotifierProvider.notifier)
@@ -83,7 +84,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //password text box
                         appTextField(
                           text: "Password",
-                          iconName: "lock.png",
+                          iconName: ImageRes.lock,
                           hintText: "Enter your password",
                           obscureText: true,
                           func: (value) => ref
@@ -96,7 +97,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //password text box
                         appTextField(
                             text: "Confirm your password",
-                            iconName: "lock.png",
+                            iconName: ImageRes.lock,
                             hintText: "Confirm your password",
                             func: (value) => ref
                                 .read(registerNotifierProvider.notifier)

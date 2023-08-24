@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/common/utils/app_colors.dart';
+import 'package:shop_app/common/utils/constants.dart';
 import 'package:shop_app/common/widgets/app_shadow.dart';
+import 'package:shop_app/global.dart';
 import 'package:shop_app/pages/sign_in/sign_in.dart';
 
 import '../../common/widgets/text_widgets.dart';
@@ -35,6 +37,10 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
         controller.animateToPage(index, duration: const Duration(milliseconds: 300),
             curve: Curves.linear);
       } else{
+        //remember if we have gone through this welcome screen before
+        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
+
+        
          Navigator.pushNamed(context,
              "/signIn");
       }
