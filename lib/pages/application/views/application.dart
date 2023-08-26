@@ -6,7 +6,8 @@ import 'package:shop_app/common/utils/app_colors.dart';
 import 'package:shop_app/common/widgets/app_bar.dart';
 import 'package:shop_app/common/widgets/app_shadow.dart';
 import 'package:shop_app/pages/application/provider/application_nav_notifier.dart';
-import 'package:shop_app/pages/application/widgets/widgets.dart';
+import 'package:shop_app/pages/application/views/widgets/widgets.dart';
+
 
 class Application extends ConsumerStatefulWidget {
   const Application({super.key});

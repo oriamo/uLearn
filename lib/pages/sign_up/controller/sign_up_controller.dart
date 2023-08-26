@@ -3,8 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shop_app/pages/sign_up/provider/register_notifier.dart';
-import '../../common/loader/global_loader.dart';
-import '../../common/widgets/popup_messages.dart';
+import 'package:shop_app/pages/sign_up/repo/sign_up_repo.dart';
+import '../../../common/loader/global_loader.dart';
+import '../../../common/widgets/popup_messages.dart';
 
 
 
@@ -45,9 +46,7 @@ class SignUpController{
     var context = Navigator.of(ref.context);
     try{
 
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email, password: password
-      );
+      final credential = await SignUpRepo.firebaseSignUp(email, password);
       if (kDebugMode) {
         print(credential);
       }

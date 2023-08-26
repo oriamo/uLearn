@@ -6,13 +6,13 @@ import 'package:shop_app/common/loader/global_loader.dart';
 import 'package:shop_app/common/utils/app_colors.dart';
 import 'package:shop_app/common/widgets/button_widgets.dart';
 import 'package:shop_app/common/widgets/text_widgets.dart';
-import 'package:shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
-import 'package:shop_app/pages/sign_in/sign_in_controller.dart';
-import 'package:shop_app/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:shop_app/pages/sign_in/controller/sign_in_controller.dart';
+import 'package:shop_app/pages/sign_in/view/widgets/sign_in_widgets.dart';
 
-import '../../common/utils/image_res.dart';
-import '../../common/widgets/app_bar.dart';
-import '../../common/widgets/app_textfields.dart';
+import '../../../common/utils/image_res.dart';
+import '../../../common/widgets/app_bar.dart';
+import '../../../common/widgets/app_textfields.dart';
+import '../provider/sign_in_notifier.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
@@ -26,10 +26,13 @@ class _SignInState extends ConsumerState<SignIn> {
   late SignInController _controller;
 
   @override
-  void initState() {
-    //initializing the sign in controller
-    _controller = SignInController(ref);
-    super.initState();
+  void didChangeDependencies(){
+    _controller = SignInController();
+
+    super.didChangeDependencies();
+
+
+
   }
 
   @override
@@ -105,7 +108,7 @@ class _SignInState extends ConsumerState<SignIn> {
                           child: appButton(
                               buttonName: "Log In",
                               func: () {
-                                _controller.handelSignIn();
+                                _controller.handelSignIn(ref);
                               }),
                         ),
                         SizedBox(

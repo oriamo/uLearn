@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_app/pages/sign_in/notifier/sign_in_state.dart';
+import 'package:shop_app/pages/sign_in/provider/sign_in_state.dart';
 //the sign in notifier provides a globally available state of type SignInState
 class SignInNotifier extends StateNotifier<SignInState>{
   SignInNotifier():super(const SignInState());

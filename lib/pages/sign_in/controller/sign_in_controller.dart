@@ -1,28 +1,29 @@
 
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_app/common/entities/entities.dart';
 import 'package:shop_app/common/loader/global_loader.dart';
 import 'package:shop_app/common/utils/constants.dart';
-import 'package:shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
-
-import '../../common/widgets/popup_messages.dart';
-import '../../global.dart';
+import 'package:shop_app/main.dart';
+import 'package:shop_app/pages/sign_in/repo/Sign_in_repo.dart';
+import '../../../common/models/user.dart';
+import '../../../common/widgets/popup_messages.dart';
+import '../../../global.dart';
+import '../provider/sign_in_notifier.dart';
 //the sign in controller controls the sign in process
-class SignInController{
-  WidgetRef ref;
-  SignInController(this.ref);
+class SignInController {
+  //WidgetRef ref;
+  SignInController();
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
 
-  
-  
-  Future<void> handelSignIn() async {
+  Future<void> handelSignIn(WidgetRef ref) async {
     var state = ref.read(signInNotifierProvider);
 
     String email = state.email;
@@ -31,12 +32,12 @@ class SignInController{
     emailController.text = email;
     passwordController.text = password;
 
-    if(state.email.isEmpty || email.isEmpty){
+    if (state.email.isEmpty || email.isEmpty) {
       toastInfo("Your email field is empty");
       return;
     }
 
-    if(state.password.isEmpty || password.isEmpty){
+    if (state.password.isEmpty || password.isEmpty) {
       toastInfo("Your password field is empty");
       return;
     }
@@ -44,18 +45,18 @@ class SignInController{
 
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      final credential = await SignInRepo.firebaseSignIn(email, password);
 
-      if(credential.user == null){
+      if (credential.user == null) {
         toastInfo("user not found");
       }
-      if(credential.user!.emailVerified){
+      if (credential.user!.emailVerified) {
         toastInfo("user email not verfied");
       }
 
       var user = credential.user;
 
-      if(user!=null){
+      if (user != null) {
         String? displayName = user.displayName;
         String? email = user.email;
         String? id = user.uid;
@@ -67,62 +68,57 @@ class SignInController{
         loginRequestEntity.email = email;
         loginRequestEntity.open_id = id;
         loginRequestEntity.type = 1;
+
+
+
         asyncPostAllData(loginRequestEntity);
+
+
         print("user loged in");
-
-
-      }else {
+      } else {
         toastInfo("Log in Error");
       }
-
-    } on FirebaseAuthException catch(e){
-      if(e.code=='weak-password'){
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
         toastInfo("This password is too weak");
-      }else if(e.code=='wrong-password'){
+      } else if (e.code == 'wrong-password') {
         toastInfo("the password provided is incorrect");
-      }else if(e.code=='user-not-found'){
+      } else if (e.code == 'user-not-found') {
         toastInfo("User not found");
       }
-      if(kDebugMode){
+      if (kDebugMode) {
         print(e.code);
       }
-
-    } catch(e){
+    } catch (e) {
       if (kDebugMode) {
         print(e.toString());
       }
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
-
-
-
   }
 
-    void asyncPostAllData(LoginRequestEntity loginRequestEntity){
-      // talk to server
-      //local server
-      try{
-        var navigator = Navigator.of(ref.context);
-        //remember the user info
-        Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
-        Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
-        navigator.pushNamedAndRemoveUntil("/application", (route) => false);
-
-
-
-
-
-
-
-      }catch(e){
-        if(kDebugMode){
-          print(e.toString());
-        }
+  void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
+    // talk to server
+    //local server
+    try {
+      //remember the user info
+      Global.storageService.setString(
+          AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode({
+        'name': 'Dara', 'email': 'adewoledarasimi25@gmail.com', 'age': 21
+      }));
+      Global.storageService.setString(
+          AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
+      navKey.currentState?.pushNamedAndRemoveUntil(
+          "/application", (route) => false);
+      print("we got here");
+    } catch (e) {
+      if (kDebugMode) {
+       print(e.toString());
       }
-      //redirect to new page
-
     }
+    //redirect to new page
 
-
-
+  }
 }
+
+

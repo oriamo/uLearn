@@ -4,9 +4,9 @@ import 'package:shop_app/common/utils/app_colors.dart';
 import 'package:shop_app/common/utils/constants.dart';
 import 'package:shop_app/common/widgets/app_shadow.dart';
 import 'package:shop_app/global.dart';
-import 'package:shop_app/pages/sign_in/sign_in.dart';
+import 'package:shop_app/pages/sign_in/view/sign_in.dart';
 
-import '../../common/widgets/text_widgets.dart';
+import '../../../../common/widgets/text_widgets.dart';
 
 Widget appOnboardingPage(PageController controller, BuildContext context,
     {String imagePath = "reading", String title = "", String subTitile = "", index = 0}) {

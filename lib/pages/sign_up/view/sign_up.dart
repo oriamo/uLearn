@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shop_app/pages/sign_up/sign_up_controller.dart';
-import '../../common/loader/global_loader.dart';
-import '../../common/utils/app_colors.dart';
-import '../../common/utils/image_res.dart';
-import '../../common/widgets/app_bar.dart';
-import '../../common/widgets/app_textfields.dart';
-import '../../common/widgets/button_widgets.dart';
-import '../../common/widgets/text_widgets.dart';
-import '../sign_in/widgets/sign_in_widgets.dart';
-import 'notifier/register_notifier.dart';
+import 'package:shop_app/pages/sign_up/provider/register_notifier.dart';
+import 'package:shop_app/pages/sign_up/controller/sign_up_controller.dart';
+import '../../../common/loader/global_loader.dart';
+import '../../../common/utils/app_colors.dart';
+import '../../../common/utils/image_res.dart';
+import '../../../common/widgets/app_bar.dart';
+import '../../../common/widgets/app_textfields.dart';
+import '../../../common/widgets/button_widgets.dart';
+import '../../../common/widgets/text_widgets.dart';
+
+
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({Key? key}) : super(key: key);

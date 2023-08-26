@@ -2,11 +2,11 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_app/common/widgets/text_widgets.dart';
-import 'package:shop_app/pages/welcome/widgets.dart';
+import 'package:shop_app/pages/welcome/view/widgets/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../provider/welcome_notifier.dart';
 
-import 'notifier/welcome_notifier.dart';
+
 
 
 
