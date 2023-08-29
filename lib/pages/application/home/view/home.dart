@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: buildAppbar(title: "Home"),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.w),
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -30,6 +30,9 @@ class Home extends StatelessWidget {
               userName(),
               SizedBox(height: 20.h),
               serachBar(),
+              SizedBox(height: 20.h,),
+              banner(),
+
 
 
 

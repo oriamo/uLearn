@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../provider/application_nav_notifier.dart';
+part of 'application_nav_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$applicationNavIndexHash() =>
-    r'72b9886102215121642eb0dbb787b91d8426b2c6';
+    r'0c8dc37aa6233e1e49fcfb7916d2636448146e71';
 
 /// See also [ApplicationNavIndex].
 @ProviderFor(ApplicationNavIndex)
