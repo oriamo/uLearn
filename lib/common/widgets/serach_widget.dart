@@ -9,57 +9,33 @@ import 'package:shop_app/common/widgets/image_widgets.dart';
 Widget serachBar(){
 
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      //serch text box Container
+      //serch text box
       Container(
         width: 280.w,
-        height: 40.h,
+        height: 40.w,
         decoration: appBoxShadow(
           color: AppColors.primaryBackground,
           boxBorder: Border.all(color: AppColors.primaryFourElementText)
 
         ),
-
         child: Row(
           children: [
-            //icon container
             Container(
               child: appImage(imagePath: ImageRes.searchIcon),
               margin: EdgeInsets.only(left: 17.w),
             ),
-            //text field container
-            SizedBox(
+            Container(
               width: 230.w,
               height: 40.h,
-              child: Padding(
-                padding: EdgeInsets.only(top: 11.h),
-                child: appTextFieldOnly(width: 230, height: 40, hintText: "search for a course"),
-              ),
+              child: appTextFieldOnly(width: 230, height: 40, hintText: "search for a course"),
 
             )
           ],
         ) ,
 
-      ),
-      //search text button
-      GestureDetector(
-        onTap: (){
-
-        },
-        child: Container(
-          padding: EdgeInsets.all(5),
-          width: 40.w,
-          height: 40.h,
-          decoration: appBoxShadow(
-            boxBorder: Border.all(color: AppColors.primaryElement),
-
-          ),
-          child: appImage(imagePath: ImageRes.searchButton),
-
-        ),
-
-      ),
+      )
+      //serxh text button
 
     ],
 

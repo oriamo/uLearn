@@ -18,11 +18,6 @@ class ImageRes{
   static const user = '$_imagebase/user.png';
   static const lock = '$_imagebase/lock.png';
   static const searchIcon = '$_imagebase/search.png';
-  static const searchButton = '$_imagebase/options.png';
-  static const banner1 = '$_imagebase/Art.png';
-  static const banner2 = '$_imagebase/Image(1).png';
-  static const banner3 = '$_imagebase/Image(2).png';
-
 
 
 
