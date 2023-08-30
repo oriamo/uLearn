@@ -25,13 +25,12 @@ class _SignInState extends ConsumerState<SignIn> {
   //creating a variable for the sign in controller
   late SignInController _controller;
 
+
   @override
   void didChangeDependencies(){
     _controller = SignInController();
 
     super.didChangeDependencies();
-
-
 
   }
 
@@ -58,8 +57,8 @@ class _SignInState extends ConsumerState<SignIn> {
                         //log in buttons
                         thridPartyLogin(),
                         //more login options message
-                        Center(
-                            child: text14Normal(
+                        const Center(
+                            child: Text14Normal(
                                 text: "or use your email account to login")),
                         SizedBox(
                           height: 50.h,
@@ -67,39 +66,48 @@ class _SignInState extends ConsumerState<SignIn> {
                         //text input fields
 
                         //email text box
-                        appTextField(
-                            controller: _controller.emailController,
-                            text: "Email",
-                            iconName: ImageRes.user,
-                            hintText: "enter your email",
-                            obscureText: false,
-                            textInputType: TextInputType.emailAddress,
-                            func: (value) {
-                              ref
-                                  .read(signInNotifierProvider.notifier)
-                                  .onUserEmailChanged(value);
-                            }),
-                        SizedBox(
-                          height: 20.h,
+                        AutofillGroup(
+                          child: Column(
+                            children: [
+                              appTextField(
+                                  controller: _controller.emailController,
+                                  text: "Email",
+                                  iconName: ImageRes.user,
+                                  hintText: "enter your email",
+                                  obscureText: false,
+                                  textInputType: TextInputType.emailAddress,
+                                  func: (value) {
+                                    ref
+                                        .read(signInNotifierProvider.notifier)
+                                        .onUserEmailChanged(value);
+                                  },
+                                autoFillHints: [AutofillHints.email],
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              appTextField(
+                                  controller: _controller.passwordController,
+                                  text: "password",
+                                  iconName: ImageRes.lock,
+                                  hintText: "enter your password",
+                                  obscureText: true,
+                                  func: (value) {
+                                    ref
+                                        .read(signInNotifierProvider.notifier)
+                                        .onUserPasswordChanged(value);
+                                  },
+                                  autoFillHints: [AutofillHints.password]
+                              ),
+                            ],
+                          ),
                         ),
-                        //password text box
-                        appTextField(
-                            controller: _controller.passwordController,
-                            text: "password",
-                            iconName: ImageRes.lock,
-                            hintText: "enter your password",
-                            obscureText: true,
-                            func: (value) {
-                              ref
-                                  .read(signInNotifierProvider.notifier)
-                                  .onUserPasswordChanged(value);
-                            }),
                         SizedBox(
                           height: 20.h,
                         ),
                         Container(
                             margin: EdgeInsets.only(left: 25.w),
-                            child: textUnderline(text: "forgot password?")),
+                            child: const TextUnderline(text: "forgot password?")),
                         SizedBox(
                           height: 100.h,
                         ),

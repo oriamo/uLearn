@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shop_app/common/utils/image_res.dart';
 import 'package:shop_app/pages/welcome/view/widgets/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../provider/welcome_notifier.dart';
@@ -41,7 +42,7 @@ class Welcome extends ConsumerWidget {
                     //first page
                    appOnboardingPage(
                      _pageController,context,
-                     imagePath: "reading",
+                     imagePath: ImageRes.reading,
                      title: "First see learning",
                      subTitile: "forget about the paper now learing all in one place",
                      index : 1
@@ -49,7 +50,7 @@ class Welcome extends ConsumerWidget {
                     //Second page
                     appOnboardingPage(
                       _pageController, context,
-                      imagePath: "man",
+                      imagePath: ImageRes.man,
                       title: "Connect with everyone",
                       subTitile: "Always keep in touch with your tutor and friends",
                       index : 2
@@ -57,7 +58,7 @@ class Welcome extends ConsumerWidget {
                     //third page
                     appOnboardingPage(
                       _pageController,context,
-                      imagePath: "boy",
+                      imagePath: ImageRes.boy,
                       title: "Always fascinated Learning",
                       subTitile: "always anytime. the time is set at your discretion. So Study wherever you can",
                       index : 3
