@@ -19,19 +19,53 @@ Widget text24Normal({String text = "", Color color = AppColors.primaryText, Font
 class Text16Normal extends StatelessWidget {
   final String text;
   final Color color;
+  final FontWeight fontWeight;
 
-  const Text16Normal({super.key, this.text = "", this.color = AppColors.primarySecondaryElementText});
+  const Text16Normal({super.key, this.text = "", this.color = AppColors.primarySecondaryElementText, this.fontWeight = FontWeight.normal});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: TextStyle(color: color, fontSize: 16.sp, fontWeight: FontWeight.normal),
+      style: TextStyle(color: color, fontSize: 16.sp, fontWeight: fontWeight),
     );
   }
 
 
+}
+
+class Text10Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+
+  const Text10Normal({super.key, this.text = "", this.color = AppColors.primaryThreeElementText, this.fontWeight = FontWeight.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(color: color, fontSize: 10.sp, fontWeight: fontWeight),
+    );
+  }
+}
+class Text11Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+
+  const Text11Normal({super.key, this.text = "", this.color = AppColors.primaryElementText, this.fontWeight = FontWeight.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(color: color, fontSize: 11.sp, fontWeight: fontWeight),
+    );
+  }
 }
 
 class Text14Normal extends StatelessWidget {

@@ -9,7 +9,9 @@ BoxDecoration appBoxShadow(
     double radius = 15,
     double sR = 1,
     double bR = 2,
-    BoxBorder? boxBorder}) {
+    BoxBorder? boxBorder,
+
+    }) {
   return BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(radius),

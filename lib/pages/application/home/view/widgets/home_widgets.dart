@@ -158,3 +158,68 @@ AppBar homeAppbar() {
     ),
   );
 }
+
+
+class homeMenuBar extends StatelessWidget {
+  const homeMenuBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        //course selection
+        Container(
+          margin: EdgeInsets.only(top: 15.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end ,
+            children: [
+              Container(
+                child: const Text16Normal(text: "choose your course", color: AppColors.primaryText, fontWeight: FontWeight.bold,),
+              ),
+              GestureDetector(
+                child: const Text10Normal(
+                  text: "see all",
+                ),
+              )
+            ],
+          ),
+        ),
+        SizedBox(height: 20.h,),
+        Container(
+          child: Row(
+            children: [
+              Container(
+                decoration: appBoxShadow(
+                  color: AppColors.primaryElement,
+                  radius: 7.w
+                ),
+                padding: EdgeInsets.only(left: 15.w , right: 15.w , top: 5.h , bottom: 5.h ),
+                child: const Text11Normal(text: "All"),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 30.w),
+                child: const Text11Normal(
+                  text: "popular",
+                  color: AppColors.primaryThreeElementText,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 30.w),
+                child: const Text11Normal(
+                  text: "newest",
+                  color: AppColors.primaryThreeElementText,
+                ),
+              )
+
+            ],
+          ),
+        )
+
+
+      ],
+    );
+  }
+
+
+}

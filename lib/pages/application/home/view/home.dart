@@ -48,6 +48,7 @@ class _HomeState extends ConsumerState<Home> {
               serachBar(),
               SizedBox(height: 20.h,),
               HomeBanner(ref: ref, controller: _contoller),
+              const homeMenuBar(),
             ],
           ),
         ),
