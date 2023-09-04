@@ -7,12 +7,12 @@ part of 'home_controller.dart';
 // **************************************************************************
 
 String _$homeScreenBannerDotsHash() =>
-    r'9df4295db93646b440282ede18e874f6480dfcd7';
+    r'12bc22435fd4087b21e4bad5e428549d7f3b8db7';
 
 /// See also [HomeScreenBannerDots].
 @ProviderFor(HomeScreenBannerDots)
 final homeScreenBannerDotsProvider =
-    AutoDisposeNotifierProvider<HomeScreenBannerDots, int>.internal(
+    NotifierProvider<HomeScreenBannerDots, int>.internal(
   HomeScreenBannerDots.new,
   name: r'homeScreenBannerDotsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final homeScreenBannerDotsProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$HomeScreenBannerDots = AutoDisposeNotifier<int>;
+typedef _$HomeScreenBannerDots = Notifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member

@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_app/common/widgets/text_widgets.dart';
 import 'app_shadow.dart';
@@ -15,13 +16,14 @@ Widget appTextField({
   void Function(String value)? func,
   TextInputType textInputType = TextInputType.multiline,
   TextEditingController? controller,
+  List<String>? autoFillHints,
 }) {
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        text14Normal(text: text),
+        Text14Normal(text: text),
         SizedBox(
           height: 5.h,
         ),
@@ -43,6 +45,7 @@ Widget appTextField({
                 width: 260.w,
                 height: 50.h,
                 child: TextField(
+                  autofillHints: autoFillHints,
                   onChanged: (value) {
                     if (func != null) {
                       func(value);
