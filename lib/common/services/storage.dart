@@ -22,6 +22,10 @@ class StorageService{
     return _pref.getString(key)??"";
   }
 
+  Future<String> getUserToken() async{
+    return _pref.getString(AppConstants.STORAGE_USER_TOKEN_KEY)??"";
+  }
+
   Future<bool> setBool(String key, bool value) async {
     return await _pref.setBool(key, value);
   }
@@ -42,4 +46,6 @@ class StorageService{
     return userProfile;
 
   }
+
+
 }
