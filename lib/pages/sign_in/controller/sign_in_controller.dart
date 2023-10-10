@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shop_app/common/loader/global_loader.dart';
+import 'package:shop_app/common/services/htttp_util.dart';
 import 'package:shop_app/common/utils/constants.dart';
 import 'package:shop_app/main.dart';
 import 'package:shop_app/pages/sign_in/repo/Sign_in_repo.dart';
@@ -99,6 +100,9 @@ class SignInController {
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
     // talk to server
+
+
+
     //local server
     try {
       //remember the user info

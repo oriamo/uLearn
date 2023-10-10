@@ -17,7 +17,14 @@ Future<void> main() async {
 
   //waits for the global class to be initialted before runing the app
   await Global.init();
-  HttpUtil();
+  HttpUtil().post("api/login", queryParameters: {
+    'password' : "thisispassword",
+    'name' : "dara",
+    'email' : "adewoledara@gmail.com",
+    'open_id' : "alive",
+    'avatar' : "dara",
+    'type' : "1"
+  });
   runApp(const ProviderScope(child: MyApp()));
 }
 
